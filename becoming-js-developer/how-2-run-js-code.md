@@ -4,7 +4,7 @@ How and where to run JavaScript code
 You have several options to run your first hello world programming: Open your editor and create a file name `ìndex.js`
 
 ```js
-`console.log('hello world')
+console.log('hello world')
 ```
 
 ## How to run JavaScript from the command line
@@ -49,7 +49,10 @@ Frameworks like React, Angular, Svelte, etc will take care of the building & run
 
 ## Run JavaScript in a sandbox
 
-StackBlitz / Replit / CodeSandbox etc
+* [StackBlitz](https://stackblitz.com/)
+* [Replit](https://replit.com/)
+* [CodeSandbox](https://codesandbox.io/)
+* etc
 
 
 
