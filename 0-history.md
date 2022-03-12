@@ -1,5 +1,4 @@
-#The History of JavaScript
-
+# [The History of JavaScript](https://www.youtube.com/watch?v=Sh6lK57Cuk4)
 ECMAScript's evolution over the last 25 years
 
 JavaScript started as a prototype scripting language written by [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich) in 1995 for the Netscape Navigator browser under the working name of "Mocha". After being renamed to "JavaScript", it was standardized by ECMA International as [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262-arch.htm), or ECMAScript in 1997. The authoritative group of people/orgs in charge of the standard is known TC-39.

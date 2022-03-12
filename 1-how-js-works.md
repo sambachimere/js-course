@@ -1,5 +1,4 @@
-# How JavaScript Works
-
+# [How JavaScript Works](https://www.youtube.com/watch?v=FSs_JYwnAdI)
 Key terms and concepts related to the inner-workings of JS
 
 JavaScript often described as some variation of "high-level, single-threaded, garbage-collected, interpreted (or just-in-time compiled), prototype-based, multi-paradigm, dynamic language with a non-blocking event loop". You may encounter these terms during a JS job interview, but understanding their meaning will help you better understand the behabior of your code. Let's unpack each of these key terms.

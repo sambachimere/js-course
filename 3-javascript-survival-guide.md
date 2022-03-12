@@ -1,0 +1,54 @@
+# [The JavaScript survival guide](https://www.youtube.com/watch?v=9emXNzqCKyg)
+A quick primer for advanced JavaScript concepts like primites, hoisting, closures, and this binding
+
+The _JavaScript Survival Guide_ is a primer for the so-called "weird" features of the language. These concepts are common pain-points for developers, but they become relatively simple when you understand relationship between your code and the JS engine. Not to mention, these topics come up frequently on JS interviews.
+
+All research this section is based on the guidance from [Mozilla](https://developer.mozilla.org/) - the holy grail of JS documentation.
+
+## Primitive vs Object
+
+The lowest level building blocks in JavaScript are [primitives](https://developer.mozilla.org/en-US/docs/Glossary/Primitive), which include: undefined, null, string, number, bigint, boolean, and symbol. All primities are immutable.
+
+Anything that is not a primitive is an [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), or a descendant of it. Objects are collections of key/value pairs and used as the building block for more complex data structures. Here are a few examples:
+
+```js
+typeof 23 // number
+typeof "foo" // string
+typeof null // null
+
+typeof {} // object
+typeof [] // object
+typeof function() {} // function (which inherits from object)
+```
+
+## Truthy vs Falsy
+
+When a value is encounterd in a _Boolean_ contect - such as an `if` statement - it will be coerced into a boolean. If the result is `true` then the value is _truthy_ and vice versa. If you're unsure about a value, you can convert it using the logical `!` NOT operator twice, or a double-bang `!!`.
+
+```js
+true; // true
+!! "hello"; // true
+!! -1; // true
+!! []; // true
+!! {}; // true
+
+false; // false
+!! null; // false
+!! undefined; // false
+!! 0; // false
+!! ""; // false
+```
+
+## Hoisting
+
+[Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) means that your declarations, i.e functions and variables, will always be placed in memory at the top of the executions context.
+
+Notice how the function below can be called before it's actually declared. That's hoisting in action.
+
+```js
+// hoisting is as if your `function fun() {}` was located here.
+
+fun(); // works.
+
+function fun() {}
+```
