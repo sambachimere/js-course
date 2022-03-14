@@ -52,3 +52,32 @@ fun(); // works.
 
 function fun() {}
 ```
+
+## Closures
+
+What is a [Closure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)? A quick and simple definition: A function within a function, where the outer function's local variables remain available in memory after creation.
+
+Closure is very similar to a class instance with properties and methods.
+
+Notice how `outer` contains a local number variable, while `inner` increments it. Even tough outer is only called once, we can still access the count because JS "closes over" the inner function to preserve the execution context.
+
+```js
+function outer() {
+  let count = 0; // persists in memory after outer is popped off the call stack
+
+  function inner() {
+    count++;
+    return count;
+  }
+
+  return inner;
+}
+
+// Creates the Closure
+const addOne = outer();
+
+// Operates within its context or lexical environment
+addOne(); // 1
+addOne(); // 2
+addOne(); // 3
+```
