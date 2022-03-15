@@ -78,3 +78,80 @@ makeLunch({ main: '🥙', side: '🍟', drink: '🥤' });
 
 makeDinner('🍜', '🥘', '🍙', '🥠', '🍑');
 ```
+
+## Arrow functions
+
+Arrow functions provide syntactic sugar for writing compact code, while also omitting a new `this` object, which solves common pain points when writing object-oriented code. An arrow function is unique because it:
+
+1. Does not have its own `this` object.
+2. Implicit return value when brackets are omitted. i.e. `() => true` return true.
+3. Always an expression, never a statement.
+
+```js
+const makeBeer = function beerFun(qty) {
+  return '🍺'.repeat(qty);
+}
+
+const makeWine = (qty) => '🍷'.repeat(qty);
+```
+
+## Pure Functions
+
+A _pure_ function is one that only relies only its inputs, produces no side effects, and does not modify values outside its local scope.
+
+Notice how the impure function below mutates a global variable and uses it to calculate the return value. In other words, it depends on values outside of its own function parameters and/or body.
+
+```js
+let global = 0;
+const impure = () => {
+  global++;
+  return global ** 2;
+}
+
+const pure = (x) => x ** 2;
+```
+
+## Higher Order Functions
+
+A _higher order_ function is created by combining (or composing) multiple functions together by passing (1) functions as arguments or (2) returning functions. There are many built-in JS functions that use HOF, for example `setTimeout` and `Array.map`.
+
+```js
+// Anonymous
+setTimeout(() => console.log('hello!'), 2000);
+
+// Named
+const log = () => console.log('hello');
+setTimeout(log, 2000);
+
+// Array Map
+[1,2,3,4].map(v => v ** 2);
+```
+
+## Recursive Function
+
+A recursive function is one that calls itself from inside its own function body. If a terminating condition is not provided it will create an infinite loop. Recursive functions are commonly used in algorithm implementations to efficiently to efficiently handle tasks like binary-tree traversal. Below is an example of a recursive function that traverses the file system using NodeJS.
+
+```js
+const fs = require('fs');
+const { join } = require('path');
+
+const traverse = (dir) => {
+  const subfolders = fs.statSync(dir).isDirectory() && fs.readdirSync(dir);
+
+  if (subfolders) {
+    console.log('👟👟👟 Traversing ', dir);
+
+    subfolders.forEach(path => {
+      const fullPath = join(dir, path);
+
+      traverse(fullPath);
+    });
+  }
+}
+
+traverse(process.cwd());
+```
+
+
+
+
