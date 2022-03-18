@@ -152,6 +152,12 @@ const traverse = (dir) => {
 traverse(process.cwd());
 ```
 
+## WHEN SHOULD YOU WRITE FUNCTIONS?
 
+When building an app, you will often ask yourself _should I write a new function for that?_, but the correct answer is nuanced and highly-subjective. A common acronym in programming is DRY (Do Not Repeat Yourself) and is aimed at avoiding duplication:
 
+Find yourself writing repetitive code? Try abstracting it into a custom function. Sounds simple enough, but you should not take DRY to the extreme. If you find yourself having a difficult time coming up with readable function names, it probably means you are over-optimizing and starting to build your own complex framework of abstractions - possibly as much worse situation than duplicated code. People have recognized this and counter DRY with WET (Write Everything Twice, but not Thrice).
 
+In this world, we only break down code into custom functions when it is duplicated more than twice. The rational is that it provides more confidence that this extra layer of abstraction is actually required. As programmers, we often try to optimize too early because we're terrified of duplication.
+
+In brief, both DRY and WET are useful principles, but neither are perfect - it just takes practice.
