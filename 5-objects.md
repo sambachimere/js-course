@@ -142,7 +142,7 @@ const sugar = { ...original, hola: 'mundo' };
 
 When a function is assigned to an object, it is called a _method_.
 
-### Shorthand
+### SHORTHAND
 
 ```js
 const obj = {
@@ -154,7 +154,7 @@ const obj = {
 obj.hello();
 ```
 
-### This
+### THIS
 
 In a normal method, `this` refers to the object on which it is defined.
 
@@ -169,7 +169,7 @@ const obj {
 obj.hello(); // My name is Jeff
 ```
 
-### Arrow
+### ARROW
 
 Functions using the arrow syntax are not bound to `this`, so it refers to the outer or global `this` context.
 
@@ -182,7 +182,7 @@ const obj = {
 obj.hello(); // My name is undefined
 ```
 
-### Chaining
+### CHAINING
 
 In certain JS libraries you will see method chaining with `obj.doThis().toThat()`, which is made possible by simply returning the value of _this_ from each method.
 
@@ -212,7 +212,7 @@ game.takeDamage().takeDamage().takeDamage().heal();
 👾 80
 ```
 
-## Constructors
+## CONSTRUCTORS
 
 Constructors are just functions that describe how to create an Object.
 
