@@ -140,9 +140,98 @@ const sugar = { ...original, hola: 'mundo' };
 
 ## OBJECT METHODS
 
+When a function is assigned to an object, it is called a _method_.
 
+### Shorthand
 
+```js
+const obj = {
+  hello() {
+    console.log('yo');
+  }
+}
 
+obj.hello();
+```
 
+### This
 
+In a normal method, `this` refers to the object on which it is defined.
 
+```js
+const obj {
+  username: 'Samba',
+  hello() {
+    console.log(`My name is ${this.username}`);
+  }
+}
+
+obj.hello(); // My name is Jeff
+```
+
+### Arrow
+
+Functions using the arrow syntax are not bound to `this`, so it refers to the outer or global `this` context.
+
+```js
+const obj = {
+  username: 'Samba',
+  hello: () => console.log(this.username)
+}
+
+obj.hello(); // My name is undefined
+```
+
+### Chaining
+
+In certain JS libraries you will see method chaining with `obj.doThis().toThat()`, which is made possible by simply returning the value of _this_ from each method.
+
+```js
+const game = {
+  hitpoints: 100,
+  log() {
+    console.log(`👾 ${this.hitpoints}`);
+  },
+  takeDamage() {
+    this.hitpoints -= 10;
+    this.log();
+    return this; // Required for chaining
+  },
+  heal() {
+    this.hitpoints += 10;
+    this.log();
+    return this; // Required for chaining
+  },
+}
+
+game.takeDamage().takeDamage().takeDamage().heal();
+
+👾 90
+👾 80
+👾 70
+👾 80
+```
+
+## Constructors
+
+Constructors are just functions that describe how to create an Object.
+
+```js
+function Boat(name) {
+  this.name = name;
+  this.created = Date.now();
+
+  this.horn = function() {
+    console.log(this.name);
+  }
+}
+```
+
+The object is then instantiated with the `new` keyword.
+
+```js
+const sally = new Boat('Sally');
+const molly = new Boat('Molly');
+
+sally.horn(); // Sally
+```
